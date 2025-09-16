@@ -1,5 +1,5 @@
 {
-  "name": "fuwari",
+  "name": "blog-fuwari",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -26,9 +26,11 @@
     "@expressive-code/plugin-line-numbers": "^0.41.4",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@fontsource/roboto": "^5.2.9",
+    "@iconify-json/devicon-plain": "^1.2.39",
     "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/fa6-regular": "^1.2.4",
     "@iconify-json/fa6-solid": "^1.2.4",
+    "@iconify-json/fa7-brands": "^1.2.0",
     "@iconify-json/material-symbols": "^1.2.50",
     "@iconify/svelte": "^4.2.0",
     "@swup/astro": "^1.7.0",
