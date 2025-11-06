@@ -15,7 +15,14 @@ category: 站信息
 
 因为 [Hexo](https://hexo.io/) 和 [Fuwari](https://github.com/saicaca/fuwari) 都是基于 Markdown 的，因此主要内容并不需要太大改动。只需要把原有博文中的 Front-matter 替换为 [Fuwari](https://github.com/saicaca/fuwari) 的对应字段即可。博文的资源都是存在对象存储里以外链的形式插入的，因此没有重新组织图像资产的麻烦。
 
-[Fuwari](https://github.com/saicaca/fuwari) 唯一缺的一点是没有自带的友链页面，博主自己模仿关于（About）页面搓了一个，然后又通过修改自带的 Github 仓库卡片的形式搓了一个友链卡片。调试这个花的时间其实和整理博文花的时间差不多。卡片的样式比较基础，可能不是特别美观，如果有好的建议，欢迎联系。
+[Fuwari](https://github.com/saicaca/fuwari) 唯一缺的一点是没有自带的友链页面，博主自己模仿关于（About）页面搓了一个，然后又 ~~通过修改自带的 Github 仓库卡片的形式搓了一个友链卡片。调试这个花的时间其实和整理博文花的时间差不多。卡片的样式比较基础，可能不是特别美观，如果有好的建议，欢迎联系。~~ 参考[这篇帖子](https://aulypc1.github.io/posts/website/add_friendspage_in_fuwari/)的样式添加了一个自定义的友链卡片。大概是这么个样子：
+
+```md
+:::friend
+::card{nick="张三" avatar="https://avatar.link/1.jpg" link="https://link1.example.com" description="这是一段介绍"}
+::card{nick="李四" avatar="https://avatar.link/2.jpg" link="https://link2.example.com" description="这是另一段介绍"}
+:::
+```
 
 ## 评论系统哪儿去了？
 
