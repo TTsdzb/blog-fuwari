@@ -12,5 +12,5 @@
 ::card{nick="Kenvix" avatar="https://kenvix.com/images/avatar.jpg" link="https://kenvix.com/" description="一条业余写代码的咸鱼的博客"}
 ::card{nick="酪鸭梨" avatar="https://q.qlogo.cn/g?b=qq&nk=1852554085&s=640" link="https://blog.yltech.top" description="暂无简介"}
 ::card{nick="Laffey" avatar="https://slaffey.github.io/Laffey.jpg" link="https://slaffey.github.io/" description="Algorithms and Programming"}
-::card{nick="Evils loke" avatar="https://www.gravatar.com/avatar/b35e00f075fee948f817e9b4d92e6d7f8d77f54a4dee2c2161cb4415cec82492" link="https://www.loke.page/" description="A simple and beautiful blog"}
+::card{nick="Evils loke" avatar="https://www.gravatar.com/avatar/5a88a5b14a0d9bdf9fd6661b287f3264884d585874444d9e51477adfe317afbc" link="https://www.loke.page/" description="A simple and beautiful blog"}
 :::
