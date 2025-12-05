@@ -22,6 +22,17 @@ tags:
 
 ![预览图片（部分）](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/chutianmingc-cursor-preview.png)
 
-[下载链接](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/ChutianmingC_cursors.tar.gz)
+[~~下载链接~~（旧）](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/ChutianmingC_cursors.tar.gz)
 
-你也可以在[这里](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/ChutianmingC.tar.gz)下载中间文件以便修改。
+你也可以在[这里](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/ChutianmingC.tar.gz)下载中间文件以便自己修改。
+
+2025.12.5 更新：
+
+1. 添加白色描边以增强暗色主题下的可见性，对比见下图；
+2. 添加了一个右向指针。
+
+![对比图](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/20251205.png)
+
+[下载链接](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/ChutianmingC_cursors_dark.tar.gz)
+
+你也可以在[这里](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/x11-cursor-chutianmingc/ChutianmingC_dark.tar.gz)下载本次更新修改的中间文件以便自己修改。
