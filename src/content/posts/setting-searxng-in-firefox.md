@@ -8,21 +8,57 @@ tags:
   - Firefox
 ---
 
-目前最新版 Firefox 已经不能添加自定义的搜索引擎，只能通过扩展包的方式实现。当然，模板已经有大佬写好了（[项目地址](https://github.com/ndsvw/SearXNG-WebExtensions)），这个模板可以为给定的地址生成扩展，安装生成的扩展后它会自动将默认搜索引擎设置为生成时指定的实例。
+## 手动添加（推荐，2025-12-07 更新）
+
+该方法来自秘塔 AI 搜索的[相关说明](https://metaso.cn/browser-setting#title4)，也可以活用到 SearXNG 上。
+
+### 启用添加搜索引擎功能
+
+:::tip
+博主的 Firefox Developer Edition 貌似不需要额外启用也可以正常使用。如果你也使用开发者版，可以尝试直接跳到下一步。
+:::
+
+进入 `about:config` 页面，点击接受风险。在搜索框中输入 `browser.urlbar.update2.engineAliasRefresh`，此时并不会搜到相关配置项。
+
+![about:config 页面](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/setting-searxng-in-firefox/about-config.png)
+
+选择“布尔值”并点击右侧加号新建一个对应的配置值，并确保它的值为 `true`。
+
+![添加的配置项](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/setting-searxng-in-firefox/added-config.png)
+
+重启浏览器使配置生效。
+
+### 添加搜索引擎
+
+进入浏览器设置，在左侧选择“搜索”，此时页面最下方的“快捷搜索”底部应有“添加”按钮。点击“添加”按钮，名称填写你想要的名称（例如 SearXNG），关键字填写一个简短的别名（例如 `@sx`）也可以不填。地址填写你的 SearXNG 实例的搜索 URL，一般为 `https://searxng.example.com/search?q=%s`，其中 `searxng.example.com` 替换成你的实例域名，`%s` 会在搜索时被浏览器替换为搜索关键词。
+
+如果你想要在输入关键词时弹出建议，点击左下角“高级”按钮，并在“搜索建议网址”中填写你的实例的建议 URL，一般为 `https://searxng.example.com/autocompleter?q=%s`，`searxng.example.com` 替换成你的实例域名。
+
+![添加引擎](https://closure-static.oss-cn-hongkong.aliyuncs.com/blog-assets/setting-searxng-in-firefox/add-engine.png)
+
+保存后，即可在最上方的搜索引擎列表中选择你刚刚添加的 SearXNG 作为默认搜索引擎。
+
+## 旧方法（比较麻烦）
+
+~~目前最新版 Firefox 已经不能添加自定义的搜索引擎，只能通过扩展包的方式实现。~~当然，模板已经有大佬写好了（[项目地址](https://github.com/ndsvw/SearXNG-WebExtensions)），这个模板可以为给定的地址生成扩展，安装生成的扩展后它会自动将默认搜索引擎设置为生成时指定的实例。
 
 :::tip[为什么是模板的形式，而不是一个通用的、可以配置地址的扩展？]
 Firefox 不允许添加动态的搜索引擎，它的地址必须在扩展打包时就已经确定下来。
 :::
 
-## 模板作者打包好的实例
+:::tip
+由于浏览器安全限制，该方法只能添加 HTTPS 或位于本地主机（localhost）的实例地址。如果你的实例只有 HTTP，请使用上述手动添加方法。
+:::
+
+### 模板作者打包好的实例
 
 模板作者已经为一些[常见的实例地址](https://github.com/ndsvw/SearXNG-WebExtensions#for-which-instances-do-extensions-exist)打包并发布了对应的扩展，如果你使用的实例地址在列表内，你可以点击给出的链接到官方商店直接安装。
 
-## 生成自己的扩展
+### 生成自己的扩展
 
 如果你使用的实例不在此列，或者你使用自己搭建的实例，那么你需要自己生成一个。同时，如果你不打算为生成的扩展签名，你可能需要更换浏览器版本。
 
-### 自动生成
+#### 自动生成
 
 该方法需要一个 Linux 系统。理论上 MinGW 也能使用，但博主没有测试过。
 
@@ -43,7 +79,7 @@ cd SearXNG-WebExtensions
 
 生成的扩展会存放在 `output` 目录内。
 
-### 手动生成
+#### 手动生成
 
 将 `template` 目录复制一份，并使用任意文本编辑器将目录内所有文件中的所有 `{{INSTANCE.DOMAINNAME}}` 替换为你的实例域名。将目录内的文件全选，压缩为一个 zip 压缩文件。
 
@@ -51,7 +87,7 @@ cd SearXNG-WebExtensions
 务必全选目录里的文件压缩，而不是压缩目录本身，否则你的扩展包内会多嵌套一层目录导致无法识别。
 :::
 
-## 签名和安装扩展
+### 签名和安装扩展
 
 生成好扩展后，你可以在调试附加组件页面 `about:debugging#/runtime/this-firefox` 临时加载你的扩展来测试它是否正常。一般而言它可以正常工作。
 
@@ -59,7 +95,7 @@ cd SearXNG-WebExtensions
 
 你可以选择给自己的扩展签名，或者使浏览器加载未签名的扩展包。参考[官方文档（英文）](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/)。
 
-### 给扩展签名
+#### 给扩展签名
 
 签名有多种方法，一种是上传到 AMO 开发者中心（不一定要公开发布），另一种是使用 `web-ext sign` 命令，或者使用 AMO 签名 API。本文介绍第一种方法。
 
@@ -67,7 +103,7 @@ cd SearXNG-WebExtensions
 
 审核通过后，会以邮件的形式通知。你可以在扩展页面点击对应的版本并使用最上方 “文件” 部分的 xpi 链接安装你的扩展包。
 
-### 加载未签名的扩展包
+#### 加载未签名的扩展包
 
 首先你必须在 `manifest.json` 中手动指定扩展 ID。解压缩你的扩展（如果需要），编辑 `manifest.json` 并添加一行：
 
