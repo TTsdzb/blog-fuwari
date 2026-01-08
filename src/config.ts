@@ -66,7 +66,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "Codeberg",
 			icon: "devicon-plain:codeberg",
-			url: "https://github.com/TTsdzb",
+			url: "https://codeberg.org/TTsdzb",
 		},
 		{
 			name: "GitHub",
